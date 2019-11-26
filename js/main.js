@@ -3,11 +3,11 @@
 jQuery(document).ready(function($) 
 {
     var id = 1;
-    window.arr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];// Keeps track of different commands(i.e., if they are completed or not)
+    window.arr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];// Keeps track of different commands(i.e., if they are completed or not)
                                     // 0 -> not completed
                                     // 1 -> completed 
                                     // added 1 more position
-    var arr2 = ['echo','pwd','ls','cd','cd ..','cd ~','cat','touch','cp','rm','mkdir','clear','uname','date','ifconfig','tty','history'];
+    var arr2 = ['echo','pwd','ls','cd','cd ..','cd ~','cat','touch','cp','rm','mkdir','clear','uname','date','ifconfig','tty','less','history'];
     //all the newly added commands must be updated in both the above arrays
     var task = ['[[b;#ff3300;]Not Completed]', '[[b;#44D544;]Completed]'];  // To print the task status
     
@@ -52,12 +52,19 @@ jQuery(document).ready(function($)
             this.echo('> ifconfig ------- ' + task[arr[14]]);
             this.echo('> tty ------------ ' + task[arr[15]]);
             this.echo('> history -------- ' + task[arr[16]]);
+            this.echo('> less ----------- ' + task[arr[17]]);
             this.echo('\n');
         },
         echo: function(arg1) {
             arr[0] = 1;
             this.echo(arg1 + '\n');
             this.echo('> The [[b;#ff3300;]echo] command prints back your arguments.');
+            this.echo('> Type [[b;#ff3300;]help] and check your first task is completed.');
+            this.echo('> Now type [[b;#ff3300;]pwd] to continue.');
+        },
+        less: function() {
+            arr[17] = 1;
+            this.echo('> The [[b;#ff3300;]echo] command prints the file one by one.');
             this.echo('> Type [[b;#ff3300;]help] and check your first task is completed.');
             this.echo('> Now type [[b;#ff3300;]pwd] to continue.');
         },
